@@ -17,10 +17,10 @@ The architecture handles both simple SQL queries (85% of use cases) and complex 
 
 ```
 repo_knowledge_graph/
-├── setup_sql/              # Phase 1: Database setup and knowledge graph schema
-├── cortex_analyst/         # Phase 2: Semantic model for natural language queries
-├── mcp_server/            # Phase 3: Custom NetworkX tools deployed to SPCS
-├── cortex_agent/          # Phase 4: Agent orchestration and instructions
+├── 1_setup_sql/           # Phase 1: Database setup and knowledge graph schema
+├── 2_cortex_analyst/      # Phase 2: Semantic model for natural language queries
+├── 3_mcp_server/          # Phase 3: Custom NetworkX tools deployed to SPCS
+├── 4_cortex_agent/        # Phase 4: Agent orchestration and instructions
 └── README.md              # This file
 ```
 
@@ -40,8 +40,8 @@ repo_knowledge_graph/
 Before deploying, you'll need to replace placeholders (`XXXXXX`) with your actual Snowflake configuration:
 
 **Files that need configuration:**
-- `mcp_server/deploy_spcs.sh` - Replace `XXXXXX` with your Snowflake account identifier and image repository path
-- `mcp_server/service.yaml` - Replace `XXXXXX` with your account identifier and registry path
+- `3_mcp_server/deploy_spcs.sh` - Replace `XXXXXX` with your Snowflake account identifier and image repository path
+- `3_mcp_server/service.yaml` - Replace `XXXXXX` with your account identifier and registry path
 
 **Sensitive files (not included in repo):**
 - None required - The MCP server uses only static JSON files from `graph_data/` directory
@@ -54,7 +54,7 @@ Follow these phases in order:
 
 #### Phase 1: Setup SQL Database
 
-**📄 Location:** `setup_sql/soccer_knowledge_graph.sql`
+**📄 Location:** `1_setup_sql/soccer_knowledge_graph.sql`
 
 Execute the SQL script to create:
 - Database `KNOWLEDGE_GRAPH_DB` and schema `SOCCER_KG`
@@ -64,7 +64,7 @@ Execute the SQL script to create:
 
 #### Phase 2: Create Semantic Model
 
-**📄 Location:** `cortex_analyst/soccer_semantic_model.yml`
+**📄 Location:** `2_cortex_analyst/soccer_semantic_model.yml`
 
 Upload the semantic model to Snowflake to enable Cortex Analyst natural language queries:
 - Defines entity views (players, clubs, matches, coaches)
@@ -74,11 +74,11 @@ Upload the semantic model to Snowflake to enable Cortex Analyst natural language
 
 #### Phase 3: Deploy MCP Server to SPCS
 
-**📄 Location:** `mcp_server/`
+**📄 Location:** `3_mcp_server/`
 
 Deploy custom NetworkX graph algorithms as an SPCS service. Follow the complete guide:
 
-**📖 Deployment Guide:** `mcp_server/SPCS_DEPLOYMENT_GUIDE.md`
+**📖 Deployment Guide:** `3_mcp_server/SPCS_DEPLOYMENT_GUIDE.md`
 
 **Quick Summary:**
 1. Build and push Docker image (`./deploy_spcs.sh`)
@@ -96,7 +96,7 @@ Deploy custom NetworkX graph algorithms as an SPCS service. Follow the complete 
 
 #### Phase 4: Configure Cortex Agent
 
-**📄 Location:** `cortex_agent/`
+**📄 Location:** `4_cortex_agent/`
 
 Create a Cortex Agent that orchestrates between Cortex Analyst and custom tools.
 
@@ -112,7 +112,7 @@ Create a Cortex Agent that orchestrates between Cortex Analyst and custom tools.
 - Executes multiple tools in parallel when independent
 - Synthesizes results into unified responses
 
-**📄 Integration:** See `mcp_server/spcs_service_functions.sql` (Step 5) for adding custom tools to Cortex Agent
+**📄 Integration:** See `3_mcp_server/spcs_service_functions.sql` (Step 5) for adding custom tools to Cortex Agent
 
 ## 🔍 Example Queries
 
@@ -185,11 +185,11 @@ Intelligent orchestration layer that:
 
 | Component | File | Description |
 |-----------|------|-------------|
-| Database Setup | `setup_sql/soccer_knowledge_graph.sql` | Complete schema and data |
-| Semantic Model | `cortex_analyst/soccer_semantic_model.yml` | Natural language query model |
-| MCP Deployment | `mcp_server/SPCS_DEPLOYMENT_GUIDE.md` | Step-by-step SPCS guide |
-| Service Functions | `mcp_server/spcs_service_functions.sql` | SQL functions and Cortex Agent setup |
-| Agent Configuration | `cortex_agent/*.md` | Agent orchestration instructions |
+| Database Setup | `1_setup_sql/soccer_knowledge_graph.sql` | Complete schema and data |
+| Semantic Model | `2_cortex_analyst/soccer_semantic_model.yml` | Natural language query model |
+| MCP Deployment | `3_mcp_server/SPCS_DEPLOYMENT_GUIDE.md` | Step-by-step SPCS guide |
+| Service Functions | `3_mcp_server/spcs_service_functions.sql` | SQL functions and Cortex Agent setup |
+| Agent Configuration | `4_cortex_agent/*.md` | Agent orchestration instructions |
 
 ## 🎓 Use Cases Beyond Soccer
 
@@ -205,9 +205,9 @@ This architecture applies to any domain where relationships matter:
 
 **To extend this implementation:**
 
-- **New Entity Types:** Add to `KG_NODE`, create views, update semantic model
-- **New Relationships:** Add to `KG_EDGE`, create views, update semantic model  
-- **New Graph Algorithms:** Implement in `soccer_mcp_server.py`, register as MCP tool, update agent configuration
+- **New Entity Types:** Add to `KG_NODE` (Phase 1), create views, update semantic model (Phase 2)
+- **New Relationships:** Add to `KG_EDGE` (Phase 1), create views, update semantic model (Phase 2)
+- **New Graph Algorithms:** Implement in `3_mcp_server/soccer_mcp_server.py`, register as MCP tool, update agent configuration (Phase 4)
 
 See individual files for detailed implementation patterns.
 
