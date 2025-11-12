@@ -12,6 +12,13 @@ CREATE OR REPLACE SCHEMA SOCCER_KG;
 USE SCHEMA SOCCER_KG;
 
 -- =====================================================
+-- STAGE FOR SEMANTIC MODEL
+-- =====================================================
+CREATE OR REPLACE STAGE SEMANTIC_MODEL
+    DIRECTORY = (ENABLE = TRUE)
+    COMMENT = 'Stage for storing Cortex Analyst semantic model YAML files';
+
+-- =====================================================
 -- CORE NODE-EDGE TABLES
 -- =====================================================
 
