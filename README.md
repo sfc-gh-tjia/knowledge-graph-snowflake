@@ -11,7 +11,7 @@ This repository contains a complete implementation of a knowledge graph solution
 - **Deploy custom graph algorithms** (NetworkX) via Snowpark Container Services (SPCS)
 - **Orchestrate intelligently** using Cortex Agent to route queries to optimal tools
 
-The architecture handles both simple SQL queries (85% of use cases) and complex graph algorithms (15% requiring advanced analytics), all accessible through natural language.
+The architecture handles both simple SQL queries (80% of use cases) and complex graph algorithms (20% requiring advanced analytics), all accessible through natural language.
 
 ## 📁 Repository Structure
 
