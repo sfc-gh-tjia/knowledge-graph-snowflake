@@ -227,9 +227,9 @@ This is a reference implementation. Feel free to:
 
 For questions about:
 - **Snowflake features:** Refer to [Snowflake Documentation](https://docs.snowflake.com/)
-- **Cortex Analyst:** See [Cortex Analyst Guide](https://docs.snowflake.com/en/user-guide/cortex-analyst)
-- **Cortex Agent:** See [Cortex Agent Guide](https://docs.snowflake.com/en/user-guide/cortex-agent)
-- **SPCS:** See [SPCS Documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/index)
+- **Cortex Analyst:** See [Cortex Analyst Guide](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst)
+- **Cortex Agent:** See [Cortex Agent Guide](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents)
+- **SPCS:** See [SPCS Documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/overview)
 
 ---
 
