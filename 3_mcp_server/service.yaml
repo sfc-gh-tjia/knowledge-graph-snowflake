@@ -1,7 +1,7 @@
 spec:
   containers:
   - name: mcp-server
-    image: XXXXXX.registry.snowflakecomputing.com/XXXXXX/XXXXXX/XXXXXX/soccer_mcp_server:latest  # Replace with your registry path
+    image: XXXXXX.registry.snowflakecomputing.com/knowledge_graph_db/soccer_kg/soccer_graph_analytics_repo/soccer_mcp_server:latest  # Replace XXXXXX with your Snowflake account identifier
     command:
       - python
       - soccer_mcp_server.py

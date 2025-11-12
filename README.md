@@ -37,11 +37,11 @@ repo_knowledge_graph/
 
 ### Configuration Required
 
-Before deploying, you'll need to replace placeholders (`XXXXXX`) with your actual Snowflake configuration:
+Before deploying, you'll need to replace the placeholder (`XXXXXX`) with your actual Snowflake account identifier:
 
 **Files that need configuration:**
-- `3_mcp_server/deploy_spcs.sh` - Replace `XXXXXX` with your Snowflake account identifier and image repository path
-- `3_mcp_server/service.yaml` - Replace `XXXXXX` with your account identifier and registry path
+- `3_mcp_server/deploy_spcs.sh` - Replace `XXXXXX` with your Snowflake account identifier (e.g., `abc12345.us-east-1`)
+- `3_mcp_server/service.yaml` - Replace `XXXXXX` with your Snowflake account identifier (e.g., `abc12345.us-east-1`)
 
 **Sensitive files (not included in repo):**
 - None required - The MCP server uses only static JSON files from `graph_data/` directory

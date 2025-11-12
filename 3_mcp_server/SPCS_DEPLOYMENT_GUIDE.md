@@ -36,10 +36,10 @@ Your `deploy_spcs.sh` is correctly designed to deploy your custom MCP server as 
 
 Before deploying, ensure you have:
 - ✅ Docker installed and running
-- ✅ Access to Snowflake account: `XXXXXX` (replace with your account identifier)
-- ✅ Snowflake role with SPCS permissions (e.g., ACCOUNTADMIN)
-- ✅ Virtual warehouse (e.g., COMPUTE_WH)
-- ✅ Database `KNOWLEDGE_GRAPH_DB` and schema `SOCCER_KG` exist
+- ✅ Access to Snowflake account (replace `XXXXXX` in config files with your account identifier, e.g., `abc12345.us-east-1`)
+- ✅ Snowflake role with SPCS permissions: `ACCOUNTADMIN`
+- ✅ Virtual warehouse: `COMPUTE_WH`
+- ✅ Database: `KNOWLEDGE_GRAPH_DB` and schema: `SOCCER_KG`
 - ✅ `graph_data/` directory with JSON files (included in repo)
 
 ---
@@ -58,7 +58,8 @@ Execute `deploy_to_spcs.sql` in Snowflake to create:
 ### **Step 2: Login to Snowflake Docker Registry**
 
 ```bash
-docker login XXXXXX.registry.snowflakecomputing.com
+docker login <your-account-id>.registry.snowflakecomputing.com
+# Replace <your-account-id> with your actual Snowflake account identifier (e.g., abc12345.us-east-1)
 # Enter your Snowflake username and password when prompted
 ```
 

@@ -12,7 +12,7 @@ echo ""
 # Configuration
 SNOWFLAKE_ACCOUNT="XXXXXX"  # Replace with your Snowflake account identifier
 REGISTRY_URL="$SNOWFLAKE_ACCOUNT.registry.snowflakecomputing.com"
-IMAGE_REPO="XXXXXX/XXXXXX/XXXXXX"  # Replace with: database_name/schema_name/image_repo_name
+IMAGE_REPO="knowledge_graph_db/soccer_kg/soccer_graph_analytics_repo"
 IMAGE_NAME="soccer_mcp_server"
 FULL_IMAGE="$REGISTRY_URL/$IMAGE_REPO/$IMAGE_NAME:latest"
 
