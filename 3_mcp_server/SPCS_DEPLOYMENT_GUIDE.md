@@ -57,11 +57,45 @@ Execute `deploy_to_spcs.sql` in Snowflake to create:
 
 ### **Step 2: Login to Snowflake Docker Registry**
 
+Before pushing Docker images, authenticate with the Snowflake Container Registry. You have two authentication options:
+
+#### **Option A: Username and Password (Interactive)**
+
 ```bash
 docker login <your-account-id>.registry.snowflakecomputing.com
 # Replace <your-account-id> with your actual Snowflake account identifier (e.g., abc12345.us-east-1)
-# Enter your Snowflake username and password when prompted
+# When prompted:
+#   Username: Your Snowflake username
+#   Password: Your Snowflake password
 ```
+
+#### **Option B: Personal Access Token (PAT) - Recommended for Automation**
+
+**Step 1: Generate a PAT in Snowflake:**
+1. Log into Snowsight
+2. Click on your username → **My Profile**
+3. Go to **Password & Authentication**
+4. Under **Personal Access Tokens**, click **Generate Token**
+5. Copy the token (you'll only see it once!)
+
+**Step 2: Authenticate with Docker using PAT:**
+
+```bash
+# Interactive method (will prompt for password)
+docker login <your-account-id>.registry.snowflakecomputing.com -u <your-username>
+# When prompted for password, paste your PAT token
+
+# Or, non-interactive method (for scripts/automation)
+echo "<your-PAT-token>" | docker login <your-account-id>.registry.snowflakecomputing.com -u <your-username> --password-stdin
+```
+
+**Note:** Use your actual Snowflake username, not the literal string "USER". The PAT serves as your password.
+
+**Why use PAT?**
+- ✅ More secure (can be revoked without changing your password)
+- ✅ Better for automation and CI/CD pipelines
+- ✅ Can have limited scope and expiration
+- ✅ No multi-factor authentication prompts
 
 ### **Step 3: Build and Push Docker Image**
 
