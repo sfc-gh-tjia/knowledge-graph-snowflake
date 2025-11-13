@@ -6,17 +6,17 @@ Your MCP server is deployed as a custom SPCS container service:
 
 ```
 ┌─────────────────────────────────────────────────┐
-│  Snowflake SPCS (Container Services)           │
-│  ┌───────────────────────────────────────────┐ │
-│  │  Docker Container                         │ │
-│  │  ┌─────────────────────────────────────┐ │ │
-│  │  │  soccer_mcp_server.py               │ │ │
-│  │  │  - FastMCP framework                │ │ │
-│  │  │  - NetworkX graph analytics         │ │ │
-│  │  │  - HTTP endpoints (port 5000)       │ │ │
-│  │  │  - 5 custom tools                   │ │ │
-│  │  └─────────────────────────────────────┘ │ │
-│  └───────────────────────────────────────────┘ │
+│  Snowflake SPCS (Container Services)            │
+│  ┌───────────────────────────────────────────┐  │
+│  │  Docker Container                         │  │
+│  │  ┌─────────────────────────────────────┐  │  │
+│  │  │  soccer_mcp_server.py               │  │  │
+│  │  │  - FastMCP framework                │  │  │
+│  │  │  - NetworkX graph analytics         │  │  │
+│  │  │  - HTTP endpoints (port 5000)       │  │  │
+│  │  │  - 5 custom tools                   │  │  │
+│  │  └─────────────────────────────────────┘  │  │
+│  └───────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────┘
          ↕ HTTP
 ┌─────────────────────────────────────────────────┐
