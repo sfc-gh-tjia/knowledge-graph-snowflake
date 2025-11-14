@@ -1,4 +1,4 @@
-# Complete Knowledge Graph on Snowflake - Powered by Snowflake Intelligence
+# [Complete Knowledge Graph on Snowflake - Powered by Snowflake Intelligence] (https://medium.com/snowflake/complete-knowledge-graph-on-snowflake-powered-by-snowflake-intelligence-f2ed5fbd86c7)
 
 A production-ready knowledge graph system on Snowflake that combines graph data modeling, natural language querying via Cortex Analyst, advanced graph algorithms via custom NetworkX tools, and intelligent orchestration using Cortex Agent.
 
